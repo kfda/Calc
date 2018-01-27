@@ -53,5 +53,5 @@ let index = 0;
     index ++;
     console.log('A:' , A , 'B:' , B , 'OP' , OP);
   }
-console.log(A.pop());
+$('#result').text(A.pop());
 }
