@@ -53,5 +53,10 @@ let index = 0;
     index ++;
     console.log('A:' , A , 'B:' , B , 'OP' , OP);
   }
-$('#result').text(A.pop());
+  if (A[0] == Infinity) {
+    $('#result').text('Error - cant Div by 0!');
+  }else {
+
+    $('#result').text(A.pop());
+  }
 }
