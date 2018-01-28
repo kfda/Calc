@@ -7,7 +7,7 @@ function exec(e) {
 //\/\/\/\/\/\/\/\/\/\/\\/\/\\\
 
 
-//with those functions i can take have OP and calc with a string note
+//with those functions i can take A OP and calc with a string note
 // like '+' will be +
 var functions = {
   '+': function(a, b) {
@@ -69,6 +69,10 @@ function calc(str) {
 
         time_to_calc = true;
       }
+    }else{
+
+      $('#result').text('Invalid Input!');
+
     }
     if (!isA && temp != '') time_to_calc = true;
     //the index show us if the STRING is done.
