@@ -16,4 +16,4 @@ open the index.html file with your browser.
 Updates
 =======
 a few bugs will Appeared by using '()' or 'argements' > 2 in the Input.
-not finished yet... still tying to understand out how to do that.
+not finished yet... still tying to understand how to do that.
