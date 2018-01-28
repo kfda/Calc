@@ -9,6 +9,13 @@ var functions = {
   '^': function (a,b){return Math.pow(a,b)},
 }
 
+function exec(e){
+  if (e.keyCode == 13) {
+    calc($('#q').val());
+  }
+}
+
+
 function calc(str){
 let temp = '';
 let isA = true;

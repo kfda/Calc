@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body onkeydown="exec(event)">
       <input id="q" class="form-control mr-sm-2" type="search" placeholder="What to calc?" aria-label="Search"><br>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Calc</button><br>
       <table>
@@ -21,8 +21,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+  $('#q').focus();
   $('.btn').click(function (){
     calc($('#q').val());
+
   })
 </script>
 </html>
