@@ -1,39 +1,52 @@
-
-//with those functions i can take have OP and calc with a string note
-// like '+' will be +
-var functions = {
-  '+': function (a,b){return  a+b},
-  '-': function (a,b){return  a-b},
-  '*': function (a,b){return a*b},
-  '/': function (a,b){return a/b},
-  '^': function (a,b){return Math.pow(a,b)},
-}
-
-function exec(e){
+//Enter Event
+function exec(e) {
   if (e.keyCode == 13) {
     calc($('#q').val());
   }
 }
+//\/\/\/\/\/\/\/\/\/\/\\/\/\\\
 
 
-function calc(str){
-let temp = '';
-let isA = true;
-let time_to_calc = false;
-let result = '';
-let isB = false;
-const A = [];
-const OP = [];
-const B = [];
-let index = 0;
-  for(char of str){
+//with those functions i can take have OP and calc with a string note
+// like '+' will be +
+var functions = {
+  '+': function(a, b) {
+    return a + b
+  },
+  '-': function(a, b) {
+    return a - b
+  },
+  '*': function(a, b) {
+    return a * b
+  },
+  '/': function(a, b) {
+    return a / b
+  },
+  '^': function(a, b) {
+    return Math.pow(a, b)
+  },
+}
+
+
+
+function calc(str) {
+  let temp = '';
+  let isA = true;
+  let time_to_calc = false;
+  let result = '';
+  let isB = false;
+  const A = [];
+  const OP = [];
+  const B = [];
+  let index = 0;
+  for (char of str) {
     //asking if the char is number
     //if yes , add it to tmp
     if (Number.isInteger(Number(char))) {
       console.log('Number');
       temp += char;
-      console.log('temp' , temp);
-    }else if (char == '+' || char == '-' || char == '*' || char == '/' || char == '^') {
+      console.log('temp', temp);
+    } else if (char == '+' || char == '-' || char == '*' || char == '/' || char == '^') {
       console.log('soft char');
       //A flag is up (true) by Default
       //if it's an OP
@@ -47,7 +60,7 @@ let index = 0;
         temp = '';
         isA = false;
         // console.log(isA);
-      }else{
+      } else {
         //if the A flag is not up (false) , asouming it's B
         console.log('isA: false , isB');
         B.push(temp);
@@ -56,26 +69,27 @@ let index = 0;
 
         time_to_calc = true;
       }
-    }if(!isA && temp != '') time_to_calc= true;
+    }
+    if (!isA && temp != '') time_to_calc = true;
     //the index show us if the STRING is done.
-    if (time_to_calc && index == str.length -1) {
+    if (time_to_calc && index == str.length - 1) {
       console.log('time to calc');
-      if (temp != ''){
+      if (temp != '') {
         console.log('temp not empty');
         B.push(temp);
 
       }
-      result = functions[OP.pop()](Number(A.pop()),Number(B.pop()));
+      result = functions[OP.pop()](Number(A.pop()), Number(B.pop()));
       A.push(result);
       time_to_calc = false;
     }
-    index ++;
-    console.log('A:' , A , 'B:' , B , 'OP' , OP);
+    index++;
+    console.log('A:', A, 'B:', B, 'OP', OP);
   }
   //CANT Dividing By 0
   if (A[0] == Infinity) {
     $('#result').text('Error - cant Div by 0!');
-  }else {
+  } else {
     $('#result').text(A.pop());
   }
 }
